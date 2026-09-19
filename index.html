@@ -20,7 +20,7 @@
     <main class="max-w-4xl mx-auto px-4 py-12">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-extrabold text-stone-900 mb-4">Disfruta el mejor café de origen</h2>
-            <p class="text-stone-600 text-lg">Selecciona tu presentación favorita y recíbela en la puerta de tucasa.</p>
+            <p class="text-stone-600 text-lg">Selecciona tu presentación favorita y recíbela en la puerta de tu casa.</p>
         </div>
 
         <!-- Grid de Productos (Las dos presentaciones) -->
@@ -35,7 +35,7 @@
                     <div class="text-3xl font-black text-amber-800 mb-6">$ 35.000 <span class="text-sm font-normal text-stone-500">COP</span></div>
                 </div>
                 <!-- Botón de Compra / Wompi -->
-                <button onclick="pagarWompi(35000, 'Café 250g')" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center">
+                <button onclick="pagarWompi(35000, 'Café 250g')" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center cursor-pointer">
                     Comprar 250g
                 </button>
             </div>
@@ -49,7 +49,7 @@
                     <div class="text-3xl font-black text-amber-800 mb-6">$ 65.000 <span class="text-sm font-normal text-stone-500">COP</span></div>
                 </div>
                 <!-- Botón de Compra / Wompi -->
-                <button onclick="pagarWompi(65000, 'Café 500g')" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center">
+                <button onclick="pagarWompi(65000, 'Café 500g')" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center cursor-pointer">
                     Comprar 500g
                 </button>
             </div>
@@ -64,9 +64,9 @@
             var checkout = new WidgetCheckout({
                 currency: 'COP',
                 amountInCents: precioEnPesos * 100, // Wompi pide el precio en centavos
-                reference: 'CAFE-' + Math.random().toString(36.substring(7)), // Referencia única
+                reference: 'CAFE-' + Math.random().toString(36).substring(7), // Referencia única
                 publicKey: 'pub_prod_TU_LLAVE_PUBLICA_AQUI', // Reemplaza con tu Llave Pública de Wompi
-                redirectUrl: 'https://tusitio.netlify.app/gracias.html' // Opcional: URL de éxito
+                redirectUrl: 'https://voces-del-cafe.netlify.app' // URL de éxito o retorno
             });
 
             checkout.open(function (result) {
