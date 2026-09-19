@@ -34,9 +34,9 @@
                     <p class="text-stone-600 mb-4">Ideal para consumo personal y mantener la frescura del grano recién molido por más tiempo.</p>
                     <div class="text-3xl font-black text-amber-800 mb-6">$ 35.000 <span class="text-sm font-normal text-stone-500">COP</span></div>
                 </div>
-                <button onclick="pagarWompi(35000, 'Café Artesanal 250g')" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center cursor-pointer">
+                <a href="https://checkout.wompi.co/p/?public-key=pub_prod_dk01Ib1nY3x9Z7XLZLS6JINLD2kUXfm&currency=COP&amount-in-cents=3500000&reference=CAFE-250G-01&name=Cafe+Artesanal+250g" target="_blank" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center block">
                     Comprar 250g
-                </button>
+                </a>
             </div>
 
             <!-- Presentación 500g -->
@@ -47,30 +47,13 @@
                     <p class="text-stone-600 mb-4">Nuestra bolsa grande pensada para los verdaderos amantes del buen café en casa.</p>
                     <div class="text-3xl font-black text-amber-800 mb-6">$ 65.000 <span class="text-sm font-normal text-stone-500">COP</span></div>
                 </div>
-                <button onclick="pagarWompi(65000, 'Café Artesanal 500g')" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center cursor-pointer">
+                <a href="https://checkout.wompi.co/p/?public-key=pub_prod_dk01Ib1nY3x9Z7XLZLS6JINLD2kUXfm&currency=COP&amount-in-cents=6500000&reference=CAFE-500G-02&name=Cafe+Artesanal+500g" target="_blank" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center block">
                     Comprar 500g
-                </button>
+                </a>
             </div>
 
         </div>
     </main>
 
-    <!-- Script del Widget de Wompi -->
-    <script src="https://checkout.wompi.co/widget.js"></script>
-    <script>
-        function pagarWompi(precioEnPesos, nombreProducto) {
-            var checkout = new WidgetCheckout({
-                currency: 'COP',
-                amountInCents: precioEnPesos * 100,
-                reference: 'CAFE-' + Date.now(),
-                publicKey: 'pub_test_BAo8FOrDEXe9bFubpI0pHNSe7mMxw3zz'
-            });
-
-            checkout.open(function (result) {
-                var transaction = result.transaction;
-                console.log('ID de transacción: ', transaction.id);
-            });
-        }
-    </script>
 </body>
 </html>
