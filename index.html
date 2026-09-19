@@ -65,7 +65,8 @@
                 currency: 'COP',
                 amountInCents: precioEnPesos * 100, // Wompi pide el precio en centavos
                 reference: 'CAFE-' + Math.random().toString(36).substring(7), // Referencia única
-publicKey: 'pub_prod_dk01Ib1nY3x9Z7XLZLS6JINLD2kUXfm'                redirectUrl: 'https://voces-del-cafe.netlify.app' // URL de éxito o retorno
+                publicKey: 'pub_prod_dk01Ib1nY3x9Z7XLZLS6JINLD2kUXfm'      
+                redirectUrl: 'https://voces-del-cafe.netlify.app' // URL de éxito o retorno
             });
 
             checkout.open(function (result) {
