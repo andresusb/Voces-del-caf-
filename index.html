@@ -34,16 +34,9 @@
                     <p class="text-stone-600 mb-4">Ideal para consumo personal y mantener la frescura del grano recién molido por más tiempo.</p>
                     <div class="text-3xl font-black text-amber-800 mb-6">$ 35.000 <span class="text-sm font-normal text-stone-500">COP</span></div>
                 </div>
-                <form action="https://checkout.wompi.co/p/" method="GET">
-                    <input type="hidden" name="public-key" value="pub_test_BAo8FOrDEXe9bFubpI0pHNSe7mMxw3zz" />
-                    <input type="hidden" name="currency" value="COP" />
-                    <input type="hidden" name="amount-in-cents" value="3500000" />
-                    <input type="hidden" name="reference" value="CAFE-250G-01" />
-                    <input type="hidden" name="name" value="Cafe Artesanal 250g" />
-                    <button type="submit" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center cursor-pointer">
-                        Comprar 250g
-                    </button>
-                </form>
+                <button onclick="pagarWompi(35000, 'Café Artesanal 250g')" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center cursor-pointer">
+                    Comprar 250g
+                </button>
             </div>
 
             <!-- Presentación 500g -->
@@ -54,20 +47,30 @@
                     <p class="text-stone-600 mb-4">Nuestra bolsa grande pensada para los verdaderos amantes del buen café en casa.</p>
                     <div class="text-3xl font-black text-amber-800 mb-6">$ 65.000 <span class="text-sm font-normal text-stone-500">COP</span></div>
                 </div>
-                <form action="https://checkout.wompi.co/p/" method="GET">
-                    <input type="hidden" name="public-key" value="pub_test_BAo8FOrDEXe9bFubpI0pHNSe7mMxw3zz" />
-                    <input type="hidden" name="currency" value="COP" />
-                    <input type="hidden" name="amount-in-cents" value="6500000" />
-                    <input type="hidden" name="reference" value="CAFE-500G-01" />
-                    <input type="hidden" name="name" value="Cafe Artesanal 500g" />
-                    <button type="submit" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center cursor-pointer">
-                        Comprar 500g
-                    </button>
-                </form>
+                <button onclick="pagarWompi(65000, 'Café Artesanal 500g')" class="w-full bg-stone-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-xl transition duration-200 text-center cursor-pointer">
+                    Comprar 500g
+                </button>
             </div>
 
         </div>
     </main>
 
+    <!-- Script del Widget de Wompi -->
+    <script src="https://checkout.wompi.co/widget.js"></script>
+    <script>
+        function pagarWompi(precioEnPesos, nombreProducto) {
+            var checkout = new WidgetCheckout({
+                currency: 'COP',
+                amountInCents: precioEnPesos * 100,
+                reference: 'CAFE-' + Date.now(),
+                publicKey: 'pub_test_BAo8FOrDEXe9bFubpI0pHNSe7mMxw3zz'
+            });
+
+            checkout.open(function (result) {
+                var transaction = result.transaction;
+                console.log('ID de transacción: ', transaction.id);
+            });
+        }
+    </script>
 </body>
 </html>
